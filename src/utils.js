@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -20,3 +19,14 @@ export function calculateWinner(squares) {
   }
   return null;
 }
+
+export function getCoordinates(i) {
+  let pos = i + 1;
+  let y = Math.trunc(pos / 3);
+  let x = (pos % 3) - 1;
+  if (x === -1) {
+    x = 2;
+  }
+  return [x, y];
+}
+
