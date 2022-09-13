@@ -12,23 +12,24 @@ export default class Board extends React.Component {
   }
 
   render() {
+    const Rows = () => {
+      let array = [];
+      for (let row = 0; row < 9; row += 3) {
+        const currRow = (
+          <div key={row} className="board-row">
+            {this.renderSquare(row)}
+            {this.renderSquare(row + 1)}
+            {this.renderSquare(row + 2)}
+          </div>
+        );
+        array.push(currRow);
+      }
+      return array;
+    };
+
     return (
       <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        <Rows />
       </div>
     );
   }
