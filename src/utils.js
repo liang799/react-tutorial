@@ -26,7 +26,11 @@ export function getCoordinates(i) {
   let x = (pos % 3) - 1;
   if (x === -1) {
     x = 2;
+    y -= 1;
   }
   return [x, y];
 }
 
+export function calculatePos(x, y) {
+  return y * 3 + x;
+}
