@@ -13,6 +13,7 @@ export default class Game extends React.Component {
         },
       ],
       xIsNext: true,
+      isAsc: true,
       stepNumber: 0,
     };
   }
@@ -52,7 +53,7 @@ export default class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     /* class, index */
-    const moves = history.map((step, move) => {
+    let moves = history.map((step, move) => {
       console.log(step);
       let desc = move
         ? "Go to move #" + move + " (" + step.coordinates + ")"
@@ -66,6 +67,12 @@ export default class Game extends React.Component {
         </li>
       );
     });
+
+    let arrow = "⬇️";
+    if (!this.state.isAsc) {
+      moves.reverse();
+      arrow = "⬆️";
+    }
 
     let status;
     if (winner) {
@@ -87,6 +94,13 @@ export default class Game extends React.Component {
         <div className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol>
+        </div>
+        <div>
+          <button
+            onClick={() => this.setState({ isAsc: !this.state.isAsc })}
+          >
+            Sort By: {arrow}
+          </button>
         </div>
       </div>
     );
