@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Tic Tac Toe ReactJS tutorial
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Additional features such as sorting moves, tic-tac-toe co-ordinates and lastly current move status have been added to further enhance my learning
+
+
+## Prerequisites
+* npm
+* npm dependencies:  `npm install`
 
 ## Available Scripts
 
